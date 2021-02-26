@@ -1,61 +1,54 @@
-import Head from 'next/head';
-import React from 'react';
-import { ChallengesProvider } from '../contexts/ChallengesContext';
-import { GetServerSideProps } from 'next';
-import { CountdownProvider } from '../contexts/CountdownContext';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import styles from '../styles/pages/Login.module.css';
 
-import { ExperienceBar } from '../components/ExperienceBar';
-import { Profile } from '../components/Profile';
-import { CompletedChallenges } from '../components/CompletedChallenges';
-import { Countdown } from '../components/Countdown';
-import { ChallengeBox } from '../components/ChallengeBox';
+export default function Login() {
+  const router = useRouter();
+  const [isFilled, setIsFilled] = useState(false);
+  const [username, setUsername] = useState('');
 
-import styles from '../styles/pages/Home.module.css';
+  useEffect(() => {
+    console.log(username);
+    setIsFilled(!!username);
+    console.log(isFilled);
+  }, [username]);
 
-interface HomeProps {
-  level: number;
-  currentExperience: number;
-  challengesCompleted: number;
-}
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    router.push(`/home/${username}`);
+  };
 
-export default function Home(props: HomeProps) {
   return (
-    <ChallengesProvider
-      level={props.level}
-      currentExperience={props.currentExperience}
-      challengesCompleted={props.challengesCompleted}
-    >
-      <div className={styles.container}>
-        <Head>
-          <title>Inicio | move.it</title>
-        </Head>
-        <ExperienceBar />
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <img src="/icons/logo-full.svg" alt="" />
 
-        <CountdownProvider>
-          <section>
-            <div>
-              <Profile />
-              <CompletedChallenges />
-              <Countdown />
-            </div>
-            <div>
-              <ChallengeBox />
-            </div>
-          </section>
-        </CountdownProvider>
+        <h1>Bem-vindo</h1>
+
+        <div className={styles.loginInfo}>
+          <img src="/icons/github.svg" alt="" />
+          <span>Faça Login com seu Github para começar</span>
+        </div>
+
+        <form className={styles.loginInput} onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            placeholder="Digite seu username"
+            onChange={(e: React.FormEvent<HTMLInputElement>) => {
+              setUsername(e.currentTarget.value);
+            }}
+            value={username}
+          />
+          {isFilled ? (
+            <button type="submit">
+              <img src="/icons/arrow-left.svg" alt="" />
+            </button>
+          ) : (
+            <button disabled></button>
+          )}
+        </form>
       </div>
-    </ChallengesProvider>
+    </div>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-  const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
-
-  return {
-    props: {
-      level: Number(level),
-      currentExperience: Number(currentExperience),
-      challengesCompleted: Number(challengesCompleted),
-    },
-  };
-};

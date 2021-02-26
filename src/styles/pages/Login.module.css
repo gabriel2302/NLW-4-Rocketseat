@@ -1,0 +1,79 @@
+.container {
+  height: 100vh;
+  width: 100%;
+  background: url('/icons/background.svg') no-repeat left, var(--blue);
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  bottom: 20%;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.content h1 {
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  margin-top: 3.5rem;
+}
+
+.loginInfo {
+  display: flex;
+  width: 318px;
+  line-height: 1.5;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 3rem;
+}
+
+.loginInfo img {
+  margin-right: 1rem;
+}
+
+.loginInfo span {
+  color: var(--text-highlight);
+  font-weight: 500;
+}
+
+.loginInput {
+  display: flex;
+}
+
+.loginInput input,
+.loginInput button {
+  height: 80px;
+}
+
+.loginInput input {
+  width: 340px;
+  padding: 0 1rem;
+
+  border: 0;
+  border-radius: 5px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  background-color: transparent;
+  background-image: linear-gradient(to right, #414aa3, transparent);
+  color: var(--white);
+  font-weight: 500;
+}
+
+.loginInput button {
+  width: 80px;
+  background: var(--green);
+  border: 0;
+  outline: 0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.loginInput button:disabled {
+  background: #414aa3;
+  cursor: not-allowed;
+}
