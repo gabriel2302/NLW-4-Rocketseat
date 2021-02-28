@@ -75,5 +75,66 @@
 
 .loginInput button:disabled {
   background: #414aa3;
+  color: var(--white);
   cursor: not-allowed;
+}
+
+@media (max-width: 900px) {
+  .container {
+    background: url('/icons/background.svg') no-repeat content-box, var(--blue);
+  }
+
+  .content {
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .loginInput input,
+  .loginInput button {
+    height: 65px;
+  }
+
+  .loginInput button {
+    width: 65px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    background: var(--blue);
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+  .content > img {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .content h1 {
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .loginInput input {
+    width: 80%;
+  }
+
+  .loginInput input,
+  .loginInput button {
+    height: 55px;
+    margin-top: 40px;
+  }
+
+  .loginInput button {
+    width: 55px;
+  }
+
+  .loginInfo {
+    margin: 0 auto;
+  }
 }

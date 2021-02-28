@@ -43,7 +43,9 @@ export default function Login() {
               <img src="/icons/arrow-left.svg" alt="" />
             </button>
           ) : (
-            <button disabled></button>
+            <button disabled>
+              <img src="/icons/arrow-left.svg" alt="" />
+            </button>
           )}
         </form>
       </div>
