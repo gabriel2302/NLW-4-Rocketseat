@@ -62,8 +62,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { level, currentExperience, challengesCompleted } = ctx.req.cookies;
   const { username } = ctx.query;
 
-  console.log(username);
-
   try {
     const user: User = await fetch(
       `https://api.github.com/users/${username}`
@@ -73,7 +71,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       }
     });
 
-    console.log(user);
     return {
       props: {
         level: Number(level),

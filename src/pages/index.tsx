@@ -8,9 +8,7 @@ export default function Login() {
   const [username, setUsername] = useState('');
 
   useEffect(() => {
-    console.log(username);
     setIsFilled(!!username);
-    console.log(isFilled);
   }, [username]);
 
   const handleSubmit = (event) => {
