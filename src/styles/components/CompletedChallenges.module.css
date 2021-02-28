@@ -17,3 +17,13 @@
 .completedChallengesContainer span:last-child {
   font-size: 1.5rem;
 }
+
+@media screen and (max-width: 768px) {
+  .completedChallengesContainer span:first-child {
+    font-size: 1.2rem;
+  }
+
+  .completedChallengesContainer span:last-child {
+    font-size: 1.3rem;
+  }
+}

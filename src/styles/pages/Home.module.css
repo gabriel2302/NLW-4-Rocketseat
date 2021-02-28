@@ -16,3 +16,21 @@
   gap: 6.25rem;
   align-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .container section {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 2rem;
+    gap: 3rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container section {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 1.4rem;
+    gap: 3rem;
+  }
+}

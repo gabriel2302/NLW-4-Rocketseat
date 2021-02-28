@@ -27,3 +27,19 @@
 .profileContainer div p img {
   margin-right: 0.5rem;
 }
+
+@media screen and (max-width: 768px) {
+  .profileContainer {
+    margin-top: 40px;
+  }
+
+  .profileContainer > img {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+
+  .profileContainer div strong {
+    font-size: 1.3rem;
+  }
+}

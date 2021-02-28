@@ -103,3 +103,51 @@
 .challengeActive footer button:hover {
   filter: brightness(0.9);
 }
+
+@media screen and (max-width: 768px) {
+  .challengeBoxContainer {
+    padding: 2.3rem 2.5rem;
+  }
+
+  .challengeActive header {
+    font-size: 1.2rem;
+    padding: 0 2rem 1.5rem;
+  }
+
+  .challengeActive main {
+    margin-top: 2rem;
+  }
+
+  .challengeActive main p {
+    font-size: 1.1rem;
+    margin: 2rem 0;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .challengeBoxContainer {
+    padding: 2rem 1rem;
+  }
+  .challengeActive header {
+    font-size: 1rem;
+    padding: 0 2rem 1rem;
+  }
+
+  .challengeActive main {
+    margin-top: 1.5rem;
+  }
+
+  .challengeActive main strong {
+    font-size: 1.4rem;
+    margin: 1.5rem 0 0.2rem;
+  }
+
+  .challengeActive main img {
+    width: 50%;
+  }
+
+  .challengeActive main p {
+    font-size: 1rem;
+    margin: 2rem 0;
+  }
+}
