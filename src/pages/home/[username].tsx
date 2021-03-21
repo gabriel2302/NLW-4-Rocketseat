@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
+
 import { ChallengesProvider } from '../../contexts/ChallengesContext';
 import { GetServerSideProps } from 'next';
 import { CountdownProvider } from '../../contexts/CountdownContext';
@@ -41,10 +42,17 @@ export default function Home(props: HomeProps) {
         <CountdownProvider>
           <section>
             <div>
-              <Profile
-                name={props.user.login}
-                avatar_url={props.user.avatar_url}
-              />
+              {props.user ? (
+                <Profile
+                  name={props.user.login}
+                  avatar_url={props.user.avatar_url}
+                />
+              ) : (
+                <Profile
+                  name="Usuário desconhecido"
+                  avatar_url="/icons/avataaars.svg"
+                />
+              )}
               <CompletedChallenges />
               <Countdown />
             </div>
@@ -76,7 +84,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         level: Number(level),
         currentExperience: Number(currentExperience),
         challengesCompleted: Number(challengesCompleted),
-        user,
+        user: user || false,
       },
     };
   } catch (err) {

@@ -32,7 +32,7 @@ export default function Login() {
           <input
             type="text"
             name="username"
-            placeholder="Digite seu username"
+            placeholder="Digite seu nome de usuário"
             onChange={(e: React.FormEvent<HTMLInputElement>) => {
               setUsername(e.currentTarget.value);
             }}

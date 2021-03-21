@@ -11,7 +11,7 @@ export function Profile({ avatar_url, name }: ProfileProps) {
   const { level } = useContext(ChallengesContext);
   return (
     <div className={styles.profileContainer}>
-      <img src={avatar_url} alt="Gabriel Queiroz" />
+      <img src={avatar_url} alt={name} />
       <div>
         <strong>{name}</strong>
         <p>
